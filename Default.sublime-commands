@@ -1,0 +1,70 @@
+[
+    {
+        "caption": "XssEncode: HTML_Unescape",
+        "command": "html_unescape"
+    },
+    {
+        "caption": "XssEncode: HTML_Escape",
+        "command": "html_escape"
+    },
+    {
+        "caption": "XssEncode: Html10_Encode",
+        "command": "html10_encode"
+    },
+    {
+        "caption": "XssEncode: Html16_Encode",
+        "command": "html16_encode"
+    },
+    {
+        "caption": "XssEncode: Base64_Encode",
+        "command": "base64_encode"
+    },
+    {
+        "caption": "XssEncode: Base64_Decode",
+        "command": "base64_decode"
+    },
+    {
+        "caption": "XssEncode: URL_Encode",
+        "command": "url_encode"
+    },
+    {
+        "caption": "XssEncode: URL_Decode",
+        "command": "url_decode"
+    },
+    {
+        "caption": "XssEncode: MD5_Encode",
+        "command": "md5_encode"
+    },
+    {
+        "caption": "XssEncode: StringFromCharCode",
+        "command": "string_from_char_code"
+    },
+    {
+        "caption": "XssEncode: MysqlChar",
+        "command": "mysql_char"
+    },
+    {
+        "caption": "XssEncode: OracleChr",
+        "command": "oracle_chr"
+    },
+    {
+        "caption": "XssEncode: PHPChr",
+        "command": "php_chr"
+    },
+    {
+        "caption": "XssEncode: StringToHex",
+        "command": "string_to_hex"
+    },
+    {
+        "caption": "XssEncode: HexToString",
+        "command": "hex_to_string"
+    },
+    {
+        "caption": "XssEncode: UnicodeDecode",
+        "command": "unicode_decode"
+    },
+    {
+        "caption": "XssEncode: UnicodeEncode",
+        "command": "unicode_encode"
+    },
+]

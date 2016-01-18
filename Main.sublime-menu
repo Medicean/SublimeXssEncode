@@ -1,0 +1,33 @@
+[{
+    "mnemonic": "t",
+    "id": "tools",
+    "children":[{
+	    "id": "xssencodemenu",
+	    "caption": "XssEncode",
+	    "children":[
+	    	{"id": "htmlunescape", "caption": "HTML_Unescape", "command": "html_unescape"},
+            {"id": "htmlescape", "caption": "HTML_Escape", "command": "html_escape"},
+            {"id": "html10_encode", "caption": "Html10_Encode", "command": "html10_encode"},
+            {"id": "html16_encode", "caption": "Html16_Encode", "command": "html16_encode"},
+            {"caption": "-"},
+            {"id": "base64_decode", "caption": "Base64_Decode", "command": "base64_decode"},
+            {"id": "base64_encode", "caption": "Base64_Encode", "command": "base64_encode"},
+            {"caption": "-"},
+            {"id": "url_decode", "caption": "URL_Decode", "command": "url_decode"},
+            {"id": "url_encode", "caption": "URL_Encode", "command": "url_encode"},
+            {"caption": "-"},
+            {"id": "string_from_char_code", "caption": "StringFromCharCode", "command": "string_from_char_code"},
+            {"id": "mysql_char", "caption": "MysqlChar", "command": "mysql_char"},
+            {"id": "oracle_chr", "caption": "OracleChr", "command": "oracle_chr"},
+            {"id": "php_chr", "caption": "PHPChr", "command": "php_chr"},
+            {"caption": "-"},
+            {"id": "string_to_hex", "caption": "StringToHex", "command": "string_to_hex"},
+            {"id": "hex_to_string", "caption": "HexToString", "command": "hex_to_string"},
+            {"caption": "-"},
+            {"id": "unicode_encode", "caption": "UnicodeEncode", "command": "unicode_encode"},
+            {"id": "unicode_decode", "caption": "UnicodeDecode", "command": "unicode_decode"},
+            {"caption": "-"},
+            {"id": "md5_encode", "caption": "MD5_Encode", "command": "md5_encode"},
+	    ]
+    }]
+}]
