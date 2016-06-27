@@ -46,10 +46,16 @@
     {
         "caption": "XssEncode: OracleChr",
         "command": "oracle_chr"
+    },{
+        "caption": "XssEncode: OracleUnchr",
+        "command": "oracle_unchr"
     },
     {
         "caption": "XssEncode: PHPChr",
         "command": "php_chr"
+    },{
+        "caption": "XssEncode: PHPUnhr",
+        "command": "php_unchr"
     },
     {
         "caption": "XssEncode: StringToHex",

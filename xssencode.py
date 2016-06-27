@@ -136,6 +136,38 @@ class OracleChrCommand(XssEncodeCommand):
             sublime.error_message("Can not convert to OracleChr")
 
 
+class OracleUnchrCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        import re
+
+        def unescape(txt):
+            l = re.findall(r'CHR\((\d+?)\)', txt, re.I)
+            tmp = ""
+            for x in l:
+                tmp += chr(int(x))
+            return tmp
+
+        try:
+            splitchr = "\|"
+            chrlists = re.findall(
+                r'CHR\(\d+?\)%s{0,2}' % splitchr,
+                source_txt, re.M | re.I)
+            chrstrs = []
+            temp = ""
+            for item in range(len(chrlists)):
+                temp += chrlists[item]
+                if not re.search(splitchr, chrlists[item]):
+                    chrstrs.append(temp)
+                    temp = ""
+            chrstrs = sorted(chrstrs, key=lambda x: len(x))
+            chrstrs.reverse()
+            for item in chrstrs:
+                source_txt = source_txt.replace(item, '"%s"' % unescape(item))
+            return source_txt
+        except:
+            sublime.error_message("Can not convert to OracleUnchr")
+
+
 class PhpChrCommand(XssEncodeCommand):
     def convert(self, source_txt):
         text = ""
@@ -146,6 +178,38 @@ class PhpChrCommand(XssEncodeCommand):
             return text
         except:
             sublime.error_message("Can not convert to PhpChr")
+
+
+class PhpUnchrCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        import re
+
+        def unescape(txt):
+            l = re.findall(r'CHR\((\d+?)\)', txt, re.I)
+            tmp = ""
+            for x in l:
+                tmp += chr(int(x))
+            return tmp
+
+        try:
+            splitchr = "\."
+            chrlists = re.findall(
+                r'CHR\(\d+?\)%s{0,1}' % splitchr,
+                source_txt, re.M | re.I)
+            chrstrs = []
+            temp = ""
+            for item in range(len(chrlists)):
+                temp += chrlists[item]
+                if not re.search(splitchr, chrlists[item]):
+                    chrstrs.append(temp)
+                    temp = ""
+            chrstrs = sorted(chrstrs, key=lambda x: len(x))
+            chrstrs.reverse()
+            for item in chrstrs:
+                source_txt = source_txt.replace(item, '"%s"' % unescape(item))
+            return source_txt
+        except:
+            sublime.error_message("Can not convert to PhpUnhr")
 
 
 class StringToHexCommand(XssEncodeCommand):

@@ -2,6 +2,7 @@
   "name": "SublimeXssEncode",
   "description": "Converts characters from one encoding to another using a transformation.",
   "author": "Medici.Yan",
+  "version": "0.0.2",
   "details": "https://github.com/medicean/SublimeXssEncode",
   "labels": ["encoding"],
   "releases": [
