@@ -1,4 +1,5 @@
-# SublimeXssEncode
+# Sublime XssEncode
+
 Converts characters from one encoding to another using a transformation.
 
 **Convert the region you selected or convert all characters.**

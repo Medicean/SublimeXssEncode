@@ -1,13 +1,13 @@
 {
-  "name": "SublimeXssEncode",
+  "name": "XssEncode",
   "description": "Converts characters from one encoding to another using a transformation.",
   "author": "Medici.Yan",
   "version": "0.0.2",
+  "issues": "https://github.com/medicean/SublimeXssEncode/issues",
   "details": "https://github.com/medicean/SublimeXssEncode",
   "labels": ["encoding"],
   "releases": [
     {
-      "details": "https://github.com/medicean/SublimeXssEncode/tree/master",
       "sublime_text": "*",
       "platforms": "*"
     }
