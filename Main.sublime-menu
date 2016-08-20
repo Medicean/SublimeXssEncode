@@ -29,7 +29,7 @@
             {"id": "unicode_encode", "caption": "UnicodeEncode", "command": "unicode_encode"},
             {"id": "unicode_decode", "caption": "UnicodeDecode", "command": "unicode_decode"},
             {"caption": "-"},
-            {"id": "md5_encode", "caption": "MD5_Encode", "command": "md5_encode"},
+            {"id": "md5_encode", "caption": "MD5_Encode", "command": "md5_encode"}
 	    ]
     }]
 }]

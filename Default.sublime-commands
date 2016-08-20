@@ -72,5 +72,5 @@
     {
         "caption": "XssEncode: UnicodeEncode",
         "command": "unicode_encode"
-    },
+    }
 ]

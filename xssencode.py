@@ -39,7 +39,7 @@ class Base64EncodeCommand(XssEncodeCommand):
             import base64
         except:
             return source_txt
-        return base64.b64encode(source_txt.encode(encoding="utf-8")).decode()
+        return base64.b64encode(source_txt.encode("utf-8")).decode()
 
 
 class Base64DecodeCommand(XssEncodeCommand):
@@ -48,7 +48,7 @@ class Base64DecodeCommand(XssEncodeCommand):
             import base64
         except:
             return source_txt
-        return base64.b64decode(source_txt).decode()
+        return base64.b64decode(source_txt).decode('utf-8')
 
 
 class UrlEncodeCommand(XssEncodeCommand):
@@ -75,7 +75,7 @@ class Md5EncodeCommand(XssEncodeCommand):
             import hashlib
         except:
             return source_txt
-        return hashlib.md5(source_txt.encode(encoding="utf-8")).hexdigest()
+        return hashlib.md5(source_txt.encode("utf-8")).hexdigest()
 
 
 class Html10EncodeCommand(XssEncodeCommand):
