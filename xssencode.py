@@ -276,3 +276,17 @@ class ZipEncodeCommand(XssEncodeCommand):
             return codecs.escape_encode(text)[0].decode()
         except:
             sublime.error_message("Zip failed.")
+
+class Rot13EncodeCommand(XssEncodeCommand):
+    
+    def convert(self, source_txt):
+        text = ""
+        try:
+            import codecs
+            text =  codecs.encode(source_txt, "rot-13")
+            return text
+        except:
+            sublime.error_message("Rot13 convert failed.")
+
+class Rot13DecodeCommand(Rot13EncodeCommand):
+    pass

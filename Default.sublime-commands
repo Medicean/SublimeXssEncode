@@ -70,6 +70,14 @@
         "command": "zip_encode"
     },
     {
+        "caption": "XssEncode: Rot13Decode",
+        "command": "rot13_decode"
+    },
+    {
+        "caption": "XssEncode: Rot13Encode",
+        "command": "rot13_encode"
+    },
+    {
         "caption": "XssEncode: HexToString",
         "command": "hex_to_string"
     },
