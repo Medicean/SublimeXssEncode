@@ -254,3 +254,25 @@ class UnicodeEncodeCommand(XssEncodeCommand):
             return text
         except:
             sublime.error_message("Can not convert to UnicodeEncode")
+
+class ZipDecodeCommand(XssEncodeCommand):
+    
+    def convert(self, source_txt):
+        text = ""
+        try:
+            import zlib, codecs
+            text = zlib.decompress(codecs.escape_decode(source_txt)[0]).decode()
+            return text
+        except:
+            sublime.error_message("Unzip failed.")
+
+class ZipEncodeCommand(XssEncodeCommand):
+
+    def convert(self, source_txt):
+        text = ""
+        try:
+            import zlib, codecs
+            text = zlib.compress(source_txt.encode())
+            return codecs.escape_encode(text)[0].decode()
+        except:
+            sublime.error_message("Zip failed.")
