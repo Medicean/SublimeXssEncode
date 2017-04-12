@@ -62,6 +62,22 @@
         "command": "string_to_hex"
     },
     {
+        "caption": "XssEncode: ZipDecode",
+        "command": "zip_decode"
+    },
+    {
+        "caption": "XssEncode: ZipEncode",
+        "command": "zip_encode"
+    },
+    {
+        "caption": "XssEncode: Rot13Decode",
+        "command": "rot13_decode"
+    },
+    {
+        "caption": "XssEncode: Rot13Encode",
+        "command": "rot13_encode"
+    },
+    {
         "caption": "XssEncode: HexToString",
         "command": "hex_to_string"
     },
