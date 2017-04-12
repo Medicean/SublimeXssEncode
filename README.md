@@ -1,11 +1,21 @@
 # Sublime XssEncode
 
-Converts characters from one encoding to another using a transformation.
+[English](README.md) | [中文说明](README_CN.md)
+
+Converts characters from one encoding to another using a transformation. This tool will help you encode payloads in testing sql injections, XSS holes and site security.
 
 **Convert the region you selected or convert all characters.**
 
+XssEncode supports both Sublime Text 2 and 3.
+
 Installation
 ----
+
+Using [Package Control](https://sublime.wbond.net/installation) to find, install and upgrade *XssEncode* is the recommended method to install this plug-in.
+
+
+Otherwise, you can use the following steps manually install:
+
 1. Open the Sublime Text Packages folder
     * OS X: ~/Library/Application Support/Sublime Text 3/Packages/
     * Windows: %APPDATA%/Sublime Text 3/Packages/
@@ -17,8 +27,18 @@ Installation
 	git clone https://github.com/Medicean/SublimeXssEncode.git
 	```
 
-Commands
+3. Rename the new folder to **xssencode**
+
+
+ChangeLog
+---
+
+See more at [ChangeLog](CHANGELOG.md)
+
+Example Commands
 ----
+
+> You can type the Command HotKeys（Win: `ctrl+shift+p`, OSX: Command+shift+p），type `xssencode` and choice your action。Otherwise, click the menu bar `tools` => `XssEncode` and choice your action.
 
 * `html_escape`
 
