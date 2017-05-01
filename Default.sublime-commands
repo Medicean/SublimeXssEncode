@@ -36,6 +36,26 @@
         "command": "md5_encode"
     },
     {
+        "caption": "XssEncode: SHA1_Encode",
+        "command": "sha1_encode"
+    },
+    {
+        "caption": "XssEncode: SHA256_Encode",
+        "command": "sha256_encode"
+    },
+    {
+        "caption": "XssEncode: SHA512_Encode",
+        "command": "sha512_encode"
+    },
+    {
+        "caption": "XssEncode: SHA224_Encode",
+        "command": "sha224_encode"
+    },
+    {
+        "caption": "XssEncode: SHA384_Encode",
+        "command": "sha384_encode"
+    },
+    {
         "caption": "XssEncode: StringFromCharCode",
         "command": "string_from_char_code"
     },

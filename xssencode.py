@@ -1,6 +1,6 @@
 import sublime
 import sublime_plugin
-__VERSION__ = '1.0.1'
+__VERSION__ = '1.0.2'
 
 
 class XssEncodeCommand(sublime_plugin.TextCommand):
@@ -77,6 +77,48 @@ class Md5EncodeCommand(XssEncodeCommand):
         except:
             return source_txt
         return hashlib.md5(source_txt.encode("utf-8")).hexdigest()
+
+
+class Sha1EncodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            import hashlib
+        except:
+            return source_txt
+        return hashlib.sha1(source_txt.encode("utf-8")).hexdigest()
+
+
+class Sha256EncodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            import hashlib
+        except:
+            return source_txt
+        return hashlib.sha256(source_txt.encode("utf-8")).hexdigest()
+
+class Sha512EncodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            import hashlib
+        except:
+            return source_txt
+        return hashlib.sha512(source_txt.encode("utf-8")).hexdigest()
+
+class Sha224EncodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            import hashlib
+        except:
+            return source_txt
+        return hashlib.sha224(source_txt.encode("utf-8")).hexdigest()
+
+class Sha384EncodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            import hashlib
+        except:
+            return source_txt
+        return hashlib.sha384(source_txt.encode("utf-8")).hexdigest()
 
 
 class Html10EncodeCommand(XssEncodeCommand):
@@ -284,10 +326,18 @@ class Rot13EncodeCommand(XssEncodeCommand):
         text = ""
         try:
             import codecs
-            text =  codecs.encode(source_txt, "rot-13")
+            text = codecs.encode(source_txt, "rot-13")
             return text
         except:
             sublime.error_message("Rot13 convert failed.")
 
 class Rot13DecodeCommand(Rot13EncodeCommand):
     pass
+
+class TestCommand(XssEncodeCommand, sublime_plugin.WindowCommand):
+
+    def convert(self, source_txt):
+        self.view.window().show_input_panel('do:', 'No', self.on_done, None, None)
+
+    def on_done(self, m):
+        sublime.status_message(m)

@@ -33,7 +33,12 @@
             {"id": "unicode_encode", "caption": "UnicodeEncode", "command": "unicode_encode"},
             {"id": "unicode_decode", "caption": "UnicodeDecode", "command": "unicode_decode"},
             {"caption": "-"},
-            {"id": "md5_encode", "caption": "MD5_Encode", "command": "md5_encode"}
+            {"id": "md5_encode", "caption": "MD5_Encode", "command": "md5_encode"},
+            {"id": "sha1_encode", "caption": "SHA1_Encode", "command": "sha1_encode"},
+            {"id": "sha256_encode", "caption": "SHA256_Encode", "command": "sha256_encode"},
+            {"id": "sha512_encode", "caption": "SHA512_Encode", "command": "sha512_encode"},
+            {"id": "sha224_encode", "caption": "SHA224_Encode", "command": "sha224_encode"},
+            {"id": "sha384_encode", "caption": "SHA384_Encode", "command": "sha384_encode"}
 	    ]
     }]
 }]
