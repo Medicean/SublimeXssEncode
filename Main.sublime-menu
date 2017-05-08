@@ -10,8 +10,12 @@
             {"id": "html10_encode", "caption": "Html10_Encode", "command": "html10_encode"},
             {"id": "html16_encode", "caption": "Html16_Encode", "command": "html16_encode"},
             {"caption": "-"},
-            {"id": "base64_decode", "caption": "Base64_Decode", "command": "base64_decode"},
             {"id": "base64_encode", "caption": "Base64_Encode", "command": "base64_encode"},
+            {"id": "base32_encode", "caption": "Base32_Encode", "command": "base32_encode"},
+            {"id": "base16_encode", "caption": "Base16_Encode", "command": "base16_encode"},
+            {"id": "base64_decode", "caption": "Base64_Decode", "command": "base64_decode"},
+            {"id": "base32_decode", "caption": "Base32_Decode", "command": "base32_decode"},
+            {"id": "base16_decode", "caption": "Base16_Decode", "command": "base16_decode"},
             {"caption": "-"},
             {"id": "url_decode", "caption": "URL_Decode", "command": "url_decode"},
             {"id": "url_encode", "caption": "URL_Encode", "command": "url_encode"},
@@ -38,7 +42,10 @@
             {"id": "sha256_encode", "caption": "SHA256_Encode", "command": "sha256_encode"},
             {"id": "sha512_encode", "caption": "SHA512_Encode", "command": "sha512_encode"},
             {"id": "sha224_encode", "caption": "SHA224_Encode", "command": "sha224_encode"},
-            {"id": "sha384_encode", "caption": "SHA384_Encode", "command": "sha384_encode"}
+            {"id": "sha384_encode", "caption": "SHA384_Encode", "command": "sha384_encode"},
+            {"caption": "-"},
+            {"id": "test_encode", "caption": "Test_Encode", "command": "test_encode"},
+            {"id": "test_decode", "caption": "Test_Decode", "command": "test_decode"}
 	    ]
     }]
 }]
