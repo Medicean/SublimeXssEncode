@@ -126,6 +126,10 @@
         "command": "unicode_encode"
     },
     {
+        "caption": "XssEncode: HexStripX",
+        "command": "hex_stripx"
+    },
+    {
         "caption": "XssEncode: TestEncode",
         "command": "test_encode"
     },

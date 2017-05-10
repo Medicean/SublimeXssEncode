@@ -404,6 +404,14 @@ class Rot13DecodeCommand(Rot13EncodeCommand):
     pass
 
 
+class HexStripxCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            return source_txt.replace('\\x', '')
+        except:
+            sublime.error_message("HexStrip \\X failed.")
+
+
 class TestEncodeCommand(XssEncodeCommand, sublime_plugin.WindowCommand):
 
     def convert(self, source_txt):

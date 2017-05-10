@@ -44,6 +44,7 @@
             {"id": "sha224_encode", "caption": "SHA224_Encode", "command": "sha224_encode"},
             {"id": "sha384_encode", "caption": "SHA384_Encode", "command": "sha384_encode"},
             {"caption": "-"},
+            {"id": "hexstripx", "caption": "HexStrip\\X", "command": "hex_stripx"},
             {"id": "test_encode", "caption": "Test_Encode", "command": "test_encode"},
             {"id": "test_decode", "caption": "Test_Decode", "command": "test_decode"}
 	    ]

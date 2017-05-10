@@ -1,3 +1,18 @@
+### v1.0.2.2 (2017/05/11)
+
+* Optimize Base64
+
+ ```
+U2FsdGVkX18KDZeuSdeq5zA=  => \x53\x61\x6c\x74\x65\x64\x5f\x5f\x0a\x0d\x97\xae\x49\xd7\xaa\xe7\x30
+ ```
+* Add Base32、Base16
+* Add Test Command (for future RC4､AES)
+* Add HexStripX
+
+ ```
+\x30\xa0\x0a\x30\x0D => 30a00a300D
+ ```
+
 ### v1.0.2 (2017/05/01)
 
 * Add Sha1､ Sha256､ Sha512、Sha224、Sha384
