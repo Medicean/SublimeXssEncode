@@ -1,6 +1,6 @@
 import sublime
 import sublime_plugin
-__VERSION__ = '1.0.3.1'
+__VERSION__ = '1.0.4'
 
 
 class XssEncodeCommand(sublime_plugin.TextCommand):
