@@ -1,6 +1,6 @@
 import sublime
 import sublime_plugin
-__VERSION__ = '1.0.3'
+__VERSION__ = '1.0.3.1'
 
 
 class XssEncodeCommand(sublime_plugin.TextCommand):
@@ -86,7 +86,7 @@ class Base32DecodeCommand(XssEncodeCommand):
             return ret_str
 
 
-class Base16EncodeCommand(XssEncodeCommand):
+class Base16DecodeCommand(XssEncodeCommand):
     def convert(self, source_txt):
         try:
             import base64
@@ -103,13 +103,13 @@ class Base16EncodeCommand(XssEncodeCommand):
             return ret_str
 
 
-class Base16DecodeCommand(XssEncodeCommand):
+class Base16EncodeCommand(XssEncodeCommand):
     def convert(self, source_txt):
         try:
             import base64
         except:
             return source_txt
-        return base64.b16decode(source_txt).decode('utf-8')
+        return base64.b16encode(source_txt.encode("utf-8")).decode()
 
 
 class UrlEncodeCommand(XssEncodeCommand):
