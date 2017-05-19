@@ -1,6 +1,6 @@
 import sublime
 import sublime_plugin
-__VERSION__ = '1.0.2.2'
+__VERSION__ = '1.0.2.3'
 
 
 class XssEncodeCommand(sublime_plugin.TextCommand):
@@ -402,6 +402,30 @@ class Rot13EncodeCommand(XssEncodeCommand):
 
 class Rot13DecodeCommand(Rot13EncodeCommand):
     pass
+
+
+class Js16EncodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        text = ""
+        try:
+            import binascii
+            text += binascii.b2a_hex(source_txt.encode('utf-8')).decode()
+            ret = ""
+            for i in range(0, len(text), 2):
+                ret += "\\x%s" % (text[i:i + 2])
+            return ret
+        except:
+            sublime.error_message("Can not convert to Js16")
+
+
+class Js16DecodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            text = HexStripxCommand(self).convert(source_txt)
+            text = HexToStringCommand(self).convert(text)
+            return text
+        except:
+            sublime.error_message("Js16Decode convert failed.")
 
 
 class HexStripxCommand(XssEncodeCommand):

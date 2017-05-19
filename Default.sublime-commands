@@ -130,6 +130,14 @@
         "command": "hex_stripx"
     },
     {
+        "caption": "XssEncode: Js16Encode",
+        "command": "js16_encode"
+    },
+    {
+        "caption": "XssEncode: Js16Decode",
+        "command": "js16_decode"
+    },
+    {
         "caption": "XssEncode: TestEncode",
         "command": "test_encode"
     },
