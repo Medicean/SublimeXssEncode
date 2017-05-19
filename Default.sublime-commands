@@ -24,6 +24,22 @@
         "command": "base64_decode"
     },
     {
+        "caption": "XssEncode: Base32_Encode",
+        "command": "base32_encode"
+    },
+    {
+        "caption": "XssEncode: Base32_Decode",
+        "command": "base32_decode"
+    },
+    {
+        "caption": "XssEncode: Base16_Encode",
+        "command": "base16_encode"
+    },
+    {
+        "caption": "XssEncode: Base16_Decode",
+        "command": "base16_decode"
+    },
+    {
         "caption": "XssEncode: URL_Encode",
         "command": "url_encode"
     },
@@ -108,5 +124,25 @@
     {
         "caption": "XssEncode: UnicodeEncode",
         "command": "unicode_encode"
+    },
+    {
+        "caption": "XssEncode: HexStripX",
+        "command": "hex_stripx"
+    },
+    {
+        "caption": "XssEncode: Js16Encode",
+        "command": "js16_encode"
+    },
+    {
+        "caption": "XssEncode: Js16Decode",
+        "command": "js16_decode"
+    },
+    {
+        "caption": "XssEncode: TestEncode",
+        "command": "test_encode"
+    },
+    {
+        "caption": "XssEncode: TestDecode",
+        "command": "test_decode"
     }
 ]

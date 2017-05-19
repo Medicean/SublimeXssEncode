@@ -1,6 +1,6 @@
 import sublime
 import sublime_plugin
-__VERSION__ = '1.0.2'
+__VERSION__ = '1.0.3'
 
 
 class XssEncodeCommand(sublime_plugin.TextCommand):
@@ -49,7 +49,67 @@ class Base64DecodeCommand(XssEncodeCommand):
             import base64
         except:
             return source_txt
-        return base64.b64decode(source_txt).decode('utf-8')
+        try:
+            return base64.b64decode(source_txt).decode('utf-8')
+        except:
+            import binascii
+            hexstr = binascii.b2a_hex(base64.b64decode(source_txt))
+            ret_str = ''
+            for i in range(0, len(hexstr), 2):
+                ret_str += "\\x%c%c" % (((hexstr[i]), (hexstr[i + 1])))
+            return ret_str
+
+
+class Base32EncodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            import base64
+        except:
+            return source_txt
+        return base64.b32encode(source_txt.encode("utf-8")).decode()
+
+
+class Base32DecodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            import base64
+        except:
+            return source_txt
+        try:
+            return base64.b32decode(source_txt).decode('utf-8')
+        except:
+            import binascii
+            hexstr = binascii.b2a_hex(base64.b32decode(source_txt))
+            ret_str = ''
+            for i in range(0, len(hexstr), 2):
+                ret_str += "\\x%c%c" % (((hexstr[i]), (hexstr[i + 1])))
+            return ret_str
+
+
+class Base16EncodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            import base64
+        except:
+            return source_txt
+        try:
+            return base64.b16decode(source_txt).decode('utf-8')
+        except:
+            import binascii
+            hexstr = binascii.b2a_hex(base64.b16decode(source_txt))
+            ret_str = ''
+            for i in range(0, len(hexstr), 2):
+                ret_str += "\\x%c%c" % (((hexstr[i]), (hexstr[i + 1])))
+            return ret_str
+
+
+class Base16DecodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            import base64
+        except:
+            return source_txt
+        return base64.b16decode(source_txt).decode('utf-8')
 
 
 class UrlEncodeCommand(XssEncodeCommand):
@@ -96,6 +156,7 @@ class Sha256EncodeCommand(XssEncodeCommand):
             return source_txt
         return hashlib.sha256(source_txt.encode("utf-8")).hexdigest()
 
+
 class Sha512EncodeCommand(XssEncodeCommand):
     def convert(self, source_txt):
         try:
@@ -104,6 +165,7 @@ class Sha512EncodeCommand(XssEncodeCommand):
             return source_txt
         return hashlib.sha512(source_txt.encode("utf-8")).hexdigest()
 
+
 class Sha224EncodeCommand(XssEncodeCommand):
     def convert(self, source_txt):
         try:
@@ -111,6 +173,7 @@ class Sha224EncodeCommand(XssEncodeCommand):
         except:
             return source_txt
         return hashlib.sha224(source_txt.encode("utf-8")).hexdigest()
+
 
 class Sha384EncodeCommand(XssEncodeCommand):
     def convert(self, source_txt):
@@ -298,30 +361,35 @@ class UnicodeEncodeCommand(XssEncodeCommand):
         except:
             sublime.error_message("Can not convert to UnicodeEncode")
 
+
 class ZipDecodeCommand(XssEncodeCommand):
-    
+
     def convert(self, source_txt):
         text = ""
         try:
-            import zlib, codecs
+            import zlib
+            import codecs
             text = zlib.decompress(codecs.escape_decode(source_txt)[0]).decode()
             return text
         except:
             sublime.error_message("Unzip failed.")
+
 
 class ZipEncodeCommand(XssEncodeCommand):
 
     def convert(self, source_txt):
         text = ""
         try:
-            import zlib, codecs
+            import zlib
+            import codecs
             text = zlib.compress(source_txt.encode())
             return codecs.escape_encode(text)[0].decode()
         except:
             sublime.error_message("Zip failed.")
 
+
 class Rot13EncodeCommand(XssEncodeCommand):
-    
+
     def convert(self, source_txt):
         text = ""
         try:
@@ -331,13 +399,71 @@ class Rot13EncodeCommand(XssEncodeCommand):
         except:
             sublime.error_message("Rot13 convert failed.")
 
+
 class Rot13DecodeCommand(Rot13EncodeCommand):
     pass
 
-class TestCommand(XssEncodeCommand, sublime_plugin.WindowCommand):
+
+class Js16EncodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        text = ""
+        try:
+            import binascii
+            text += binascii.b2a_hex(source_txt.encode('utf-8')).decode()
+            ret = ""
+            for i in range(0, len(text), 2):
+                ret += "\\x%s" % (text[i:i + 2])
+            return ret
+        except:
+            sublime.error_message("Can not convert to Js16")
+
+
+class Js16DecodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            text = HexStripxCommand(self).convert(source_txt)
+            text = HexToStringCommand(self).convert(text)
+            return text
+        except:
+            sublime.error_message("Js16Decode convert failed.")
+
+
+class HexStripxCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            return source_txt.replace('\\x', '')
+        except:
+            sublime.error_message("HexStrip \\X failed.")
+
+
+class TestEncodeCommand(XssEncodeCommand, sublime_plugin.WindowCommand):
 
     def convert(self, source_txt):
-        self.view.window().show_input_panel('do:', 'No', self.on_done, None, None)
+        self.source_txt = source_txt
+        self.convert_txt = source_txt
+        self.view.window().show_input_panel(
+            'Input key here:', '', self.on_done, self.on_change, None)
+        return self.convert_txt
 
     def on_done(self, m):
         sublime.status_message(m)
+
+    def on_change(self, m):
+        sublime.status_message("Press ESC to calcel, key: %s" % m)
+
+
+class TestDecodeCommand(XssEncodeCommand, sublime_plugin.WindowCommand):
+
+    def convert(self, source_txt):
+        self.source_txt = source_txt
+        self.convert_txt = source_txt
+        self.view.window().show_input_panel(
+            'Input key here:', '',
+            self.on_done, self.on_change, None)
+        return self.convert_txt
+
+    def on_done(self, m):
+        sublime.status_message(m)
+
+    def on_change(self, m):
+        sublime.status_message("Press ESC to calcel, key: %s" % m)
