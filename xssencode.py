@@ -139,6 +139,15 @@ class Md5EncodeCommand(XssEncodeCommand):
         return hashlib.md5(source_txt.encode("utf-8")).hexdigest()
 
 
+class Md516EncodeCommand(XssEncodeCommand):
+    def convert(self, source_txt):
+        try:
+            import hashlib
+        except:
+            return source_txt
+        return hashlib.md5(source_txt.encode("utf-8")).hexdigest()[8:24]
+
+
 class Sha1EncodeCommand(XssEncodeCommand):
     def convert(self, source_txt):
         try:

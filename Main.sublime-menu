@@ -41,6 +41,7 @@
             {"id": "unicode_decode", "caption": "UnicodeDecode", "command": "unicode_decode"},
             {"caption": "-"},
             {"id": "md5_encode", "caption": "MD5_Encode", "command": "md5_encode"},
+            {"id": "md516_encode", "caption": "MD516_Encode", "command": "md516_encode"},
             {"id": "sha1_encode", "caption": "SHA1_Encode", "command": "sha1_encode"},
             {"id": "sha256_encode", "caption": "SHA256_Encode", "command": "sha256_encode"},
             {"id": "sha512_encode", "caption": "SHA512_Encode", "command": "sha512_encode"},

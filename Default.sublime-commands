@@ -52,6 +52,10 @@
         "command": "md5_encode"
     },
     {
+        "caption": "XssEncode: MD516_Encode",
+        "command": "md516_encode"
+    },
+    {
         "caption": "XssEncode: SHA1_Encode",
         "command": "sha1_encode"
     },
