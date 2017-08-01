@@ -142,6 +142,14 @@
         "command": "js16_decode"
     },
     {
+        "caption": "XssEncode: AaEncode",
+        "command": "aa_encode"
+    },
+    {
+        "caption": "XssEncode: AaDecode",
+        "command": "aa_decode"
+    },
+    {
         "caption": "XssEncode: TestEncode",
         "command": "test_encode"
     },

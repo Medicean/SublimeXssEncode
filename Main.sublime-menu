@@ -36,6 +36,8 @@
             {"caption": "-"},
             {"id": "js16_encode", "caption": "Js16Encode", "command": "js16_encode"},
             {"id": "js16_decode", "caption": "Js16Decode", "command": "js16_decode"},
+            {"id": "aa_encode", "caption": "aaEncode", "command": "aa_encode"},
+            {"id": "aa_decode", "caption": "aaDecode", "command": "aa_decode"},
             {"caption": "-"},
             {"id": "unicode_encode", "caption": "UnicodeEncode", "command": "unicode_encode"},
             {"id": "unicode_decode", "caption": "UnicodeDecode", "command": "unicode_decode"},
